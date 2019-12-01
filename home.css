@@ -1,0 +1,73 @@
+* {
+box-sizing: border-box;
+
+color:white;
+}
+body {
+  position: relative;
+  background-color: Black;
+  color:white;
+}
+.affix {
+  top:0;
+  width: 100%;
+  z-index: 9999 !important;
+}
+.navbar {
+  margin-bottom: -8%;
+  margin-top:-5%;
+}
+.affix ~ .container-fluid {
+ position: relative;
+ top: 50px;
+}
+#men
+{
+  margin-top: 10%;
+}
+#women
+{
+  margin-top: 10%;
+}
+#cart
+{
+  margin-top: -11%;
+  margin-left: 93%;
+}
+#vicky
+{
+  margin-right:50%;
+}
+#kriti
+{
+  margin-left:50%;
+}
+#sectionmen
+{
+  margin-left:58%;
+  margin-top:-69%;
+}
+#sectionwomen
+{
+  margin-right:58%;
+margin-top:-36%;
+}
+.button{
+  display:block;
+  width:50%;
+  height:100%;
+  background:rgba(0,0,0,.5);;
+  text-align:center;
+  border-radius:5px;
+  color:white;
+  font-width:bold;
+}
+.button1{
+  display:block;
+  width:20%;
+  height:50%;
+  background:rgba(0,0,0,.5);
+  text-align:left;
+  border-radius:5px;
+  color:white;
+}
