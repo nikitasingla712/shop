@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Makeupio - Products</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Makeupio - Products</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="makeup.html">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" style="z-index:-1">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="img5.jpg">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="img6.jpg">
+        </div>
+    </div>
+</div>
+
+<div id="brand">
+    <div id="search-bar">
+        <div class="form-inline my-2 my-lg-0">
+          <a id="search-button" class="btn btn-outline-success my-2 my-sm-0"  href="brand.html">Search By Brand</a>
+</div>
+          <br><br>
+          <div class="form-inline my-2 my-lg-0">
+            <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Type Product to Search" aria-label="Search">
+            <button id="search-button" class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="f1()">Search By Product</button>
+        </div>
+    </div>
+</div>
+
+<div id="div-1"></div>
+<div id="makeup"></div>
+<div id="div1">
+<img id="display">
+</img>
+</div>
+<center>
+<footer>
+  Copyright @2019 | Nikita Singla<br>----------------------------------- <a class=button1 href="nikitasingla712.github.io/resume">click Here to see my resume</a>
+</footer>
+</center>
+<script>
+function f1(){
+var e=document.getElementById("search-input").value;
+    var host="http://makeup-api.herokuapp.com/api/v1/products.json?product_type="
+    var url=host+e;
+   var xhr= new XMLHttpRequest()
+   xhr.open('GET',url)
+    xhr.onreadystatechange=test
+    function test(){
+      if(this.status==200 && this.readyState==4){
+        var res_data=JSON.parse(this.responseText)
+        // console.log(typeof res_data)
+        console.log(res_data[0].brand)
+      /*for(var i=0;i<10;i++)
+      {
+        console.log(res_data[0].brand[i]);
+      }*/
+      var img_url=res_data[4].image_link
+          var get_tag=document.getElementById("display")
+          get_tag.setAttribute('src',img_url)
+          get_tag.style.cssText = "z-index:999"
+      // var e1=document.getElementById('div-1');
+        var div = document.getElementById('div1')
+        var heading = document.createElement('h4')
+        heading.style.cssText = "position:absolute"
+heading.textContent = res_data[4].name
+      div1.appendChild(heading)
+      document.body.append(div1)
+      // string_res=JSON.stringify(res_data);
+      // e1.innerHTML=res_data.brand[0].brand.name;
+      }
+    }
+    xhr.send();
+  }
+  </script>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</html>
